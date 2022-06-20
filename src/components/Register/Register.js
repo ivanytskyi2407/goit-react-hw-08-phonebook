@@ -4,6 +4,7 @@ export const Register = () => {
   return (
     <div>
       <form className={s.form}>
+        <h2>Register</h2>
         <input
           className={s.input}
           type="email"

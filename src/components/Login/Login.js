@@ -4,6 +4,7 @@ export const Login = () => {
   return (
     <div>
       <form className={s.form}>
+        <h2>Login</h2>
         <input
           className={s.input}
           type="email"
