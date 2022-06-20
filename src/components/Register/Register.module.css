@@ -1,0 +1,25 @@
+.form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+  border-radius: 6px;
+  margin-top: 50px;
+}
+.input {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  outline: 0;
+  transition: 0.3s;
+}
+.btn {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  outline: 0;
+  border: 0;
+  color: white;
+  transition: 0.3s;
+}

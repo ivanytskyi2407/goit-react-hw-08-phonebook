@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import s from './Contacts.module.css';
 import { fetchContacts, removeContact } from '../../redux/phoneBookOperation';
+import Filter from '../Filter/Filter';
 const Contacts = () => {
   const dispatch = useDispatch();
   const { entities, filter } = useSelector(state => state.contacts);
@@ -13,6 +14,8 @@ const Contacts = () => {
   }, [dispatch]);
   return (
     <div>
+      <h2>Your Contacts</h2>
+      <Filter />
       <ul>
         {contacts.map(contact => {
           return (
