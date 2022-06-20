@@ -1,24 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import s from './Contacts.module.css';
-import {
-  useGetContactsQuery,
-  useRemoveContactMutation,
-} from '../../redux/phonebookAPI';
-
+import { fetchContacts, removeContact } from '../../redux/phoneBookOperation';
 const Contacts = () => {
-  const { data = [] } = useGetContactsQuery();
-  const [removeContact] = useRemoveContactMutation();
-
-  const filter = useSelector(state => state.filter);
-  const normalizedFilter = filter.toLowerCase();
-  const contacts = data.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter)
+  const dispatch = useDispatch();
+  const { entities, filter } = useSelector(state => state.contacts);
+  const contacts = entities.filter(({ name }) =>
+    name.toLowerCase().includes(filter)
   );
-
-  const handleDeleteContact = async id => {
-    await removeContact(id).unwrap();
-  };
-
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <div>
       <ul>
@@ -30,7 +22,7 @@ const Contacts = () => {
                 name={contact.name}
                 className={s.buttonDelete}
                 type="button"
-                onClick={() => handleDeleteContact(contact.id)}
+                onClick={() => dispatch(removeContact(contact.id))}
               >
                 Delete
               </button>

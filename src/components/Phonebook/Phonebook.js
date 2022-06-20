@@ -1,9 +1,10 @@
-import s from './Phonebook.module.css';
 import { useState } from 'react';
-import { useAddContactMutation } from '../../redux/phonebookAPI';
+import { useDispatch } from 'react-redux';
+import s from './Phonebook.module.css';
+import { addContact } from '../../redux/phoneBookOperation';
 
 const Phonebook = () => {
-  const [addContact] = useAddContactMutation();
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -20,10 +21,9 @@ const Phonebook = () => {
         return;
     }
   };
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    await addContact({ name, number }).unwrap();
-
+    dispatch(addContact({ name, number }));
     reset();
   };
   const reset = () => {
