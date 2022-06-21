@@ -1,21 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import s from './Contacts.module.css';
-import { fetchContacts, removeContact } from '../../redux/phoneBookOperation';
-import Filter from '../Filter/Filter';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import s from './Contacts.module.css';
+// import { fetchContacts, removeContact } from '../../redux/phoneBookOperation';
+// import Filter from '../Filter/Filter';
 const Contacts = () => {
-  const dispatch = useDispatch();
-  const { entities, filter } = useSelector(state => state.contacts);
-  const contacts = entities.filter(({ name }) =>
-    name.toLowerCase().includes(filter)
-  );
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const { entities, filter } = useSelector(state => state.contacts);
+  // const contacts = entities.filter(({ name }) =>
+  //   name.toLowerCase().includes(filter)
+  // );
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
   return (
     <div>
       <h2>Your Contacts</h2>
-      <Filter />
+      {/* <Filter />
       <ul>
         {contacts.map(contact => {
           return (
@@ -33,7 +33,7 @@ const Contacts = () => {
             </li>
           );
         })}
-      </ul>
+      </ul> */}
     </div>
   );
 };

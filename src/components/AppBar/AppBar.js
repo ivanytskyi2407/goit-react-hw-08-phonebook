@@ -3,14 +3,16 @@ import { Outlet } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
 import { AuthNav } from './AuthNav/AuthNav';
 import { UserMenu } from './UserMenu/UserMenu';
+import { useSelector } from 'react-redux';
+import authSelelector from '../../redux/auth/authSelector';
 
 export default function AppBar() {
+  const isLoggedIn = useSelector(authSelelector.getIsLoggedIn);
   return (
     <div className="container">
       <header className={s.header}>
         <Navigation />
-        <AuthNav />
-        <UserMenu />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </header>
       <main>
         <Outlet />
