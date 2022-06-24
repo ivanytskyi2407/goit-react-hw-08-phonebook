@@ -14,10 +14,12 @@ const Contacts = () => {
   const [number, setNumber] = useState('');
 
   const { entities, filter } = useSelector(state => state.contacts);
+  const { isLoggedIn } = useSelector(state => state.auth);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  useEffect(() => {}, [entities]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -78,28 +80,30 @@ const Contacts = () => {
         </form>
       </div>
       <Filter />
-      <ul>
-        {entities
-          .filter(({ name }) =>
-            name.toLowerCase().includes(filter.toLowerCase())
-          )
-          .map(contact => {
-            return (
-              <li key={contact.id} className={s.item}>
-                <button
-                  key={contact.id}
-                  name={contact.name}
-                  className={s.buttonDelete}
-                  type="button"
-                  onClick={() => dispatch(removeContact(contact.id))}
-                >
-                  Delete
-                </button>
-                {contact.name}: {contact.number}
-              </li>
-            );
-          })}
-      </ul>
+      {isLoggedIn && (
+        <ul>
+          {entities
+            .filter(({ name }) =>
+              name.toLowerCase().includes(filter.toLowerCase())
+            )
+            .map(contact => {
+              return (
+                <li key={contact.id} className={s.item}>
+                  <button
+                    key={contact.id}
+                    name={contact.name}
+                    className={s.buttonDelete}
+                    type="button"
+                    onClick={() => dispatch(removeContact(contact.id))}
+                  >
+                    Delete
+                  </button>
+                  {contact.name}: {contact.number}
+                </li>
+              );
+            })}
+        </ul>
+      )}
     </div>
   );
 };
