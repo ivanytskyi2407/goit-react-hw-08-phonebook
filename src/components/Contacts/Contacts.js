@@ -18,7 +18,6 @@ const Contacts = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  useEffect(() => {}, [items]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -101,7 +100,6 @@ const Contacts = () => {
             );
           })}
       </ul>
-      )
     </div>
   );
 };

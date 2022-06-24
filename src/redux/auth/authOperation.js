@@ -54,7 +54,6 @@ export const fetchCurrentUser = createAsyncThunk(
       console.log('Токена нет, уходим из fetchCurrentUser');
       return thunkAPI.rejectWithValue();
     }
-
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');

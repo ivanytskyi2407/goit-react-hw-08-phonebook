@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import logger from 'redux-logger';
 import storage from 'redux-persist/lib/storage';
 
 const authPersistConfig = {
@@ -30,8 +31,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
-  // .concat(logger),
+    }).concat(logger),
 });
 
 export const persistor = persistStore(store);

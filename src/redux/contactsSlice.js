@@ -23,11 +23,12 @@ const contactsSlice = createSlice({
       state.items = payload;
     },
     [removeContact.fulfilled]: (state, { payload }) => {
+      console.log(payload);
       return {
         ...state,
         status: null,
         items: state.items.filter(({ id }) => {
-          return id !== payload.id;
+          return id !== payload;
         }),
       };
     },
