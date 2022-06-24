@@ -1,11 +1,3 @@
-// import phonebookSlice from './phonebookSlice';
-// import { configureStore } from '@reduxjs/toolkit';
-
-// export const store = configureStore({
-//   reducer: { contacts: phonebookSlice },
-// });
-// import logger from 'redux-logger';
-
 import authReducer from './auth/authSlice';
 import contactReducer from './contactsSlice';
 import { configureStore } from '@reduxjs/toolkit';
@@ -22,9 +14,9 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 const authPersistConfig = {
-  key: 'contacts',
+  key: 'auth',
   storage,
-  blacklist: 'filter',
+  whitelist: ['token'],
 };
 
 export const store = configureStore({

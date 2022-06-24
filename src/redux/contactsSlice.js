@@ -11,7 +11,7 @@ const setPending = state => {
 };
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: { entities: [], filter: '', status: null, error: null },
+  initialState: { items: [], filter: '', status: null, error: null },
   reducers: {
     filterContacts: (state, { payload }) => {
       return { ...state, filter: payload };
@@ -20,13 +20,13 @@ const contactsSlice = createSlice({
   extraReducers: {
     [fetchContacts.fulfilled]: (state, { payload }) => {
       state.status = 'resolved';
-      state.entities = payload;
+      state.items = payload;
     },
     [removeContact.fulfilled]: (state, { payload }) => {
       return {
         ...state,
         status: null,
-        entities: state.entities.filter(({ id }) => {
+        items: state.items.filter(({ id }) => {
           return id !== payload.id;
         }),
       };
@@ -35,7 +35,7 @@ const contactsSlice = createSlice({
       return {
         ...state,
         status: null,
-        entities: [...state.entities, payload],
+        items: [...state.items, payload],
       };
     },
     [removeContact.pending]: setPending,

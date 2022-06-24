@@ -13,13 +13,12 @@ const Contacts = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const { entities, filter } = useSelector(state => state.contacts);
-  const { isLoggedIn } = useSelector(state => state.auth);
+  const { items, filter } = useSelector(state => state.contacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  useEffect(() => {}, [entities]);
+  useEffect(() => {}, [items]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -80,30 +79,29 @@ const Contacts = () => {
         </form>
       </div>
       <Filter />
-      {isLoggedIn && (
-        <ul>
-          {entities
-            .filter(({ name }) =>
-              name.toLowerCase().includes(filter.toLowerCase())
-            )
-            .map(contact => {
-              return (
-                <li key={contact.id} className={s.item}>
-                  <button
-                    key={contact.id}
-                    name={contact.name}
-                    className={s.buttonDelete}
-                    type="button"
-                    onClick={() => dispatch(removeContact(contact.id))}
-                  >
-                    Delete
-                  </button>
-                  {contact.name}: {contact.number}
-                </li>
-              );
-            })}
-        </ul>
-      )}
+      <ul>
+        {items
+          .filter(({ name }) =>
+            name.toLowerCase().includes(filter.toLowerCase())
+          )
+          .map(contact => {
+            return (
+              <li key={contact.id} className={s.item}>
+                <button
+                  key={contact.id}
+                  name={contact.name}
+                  className={s.buttonDelete}
+                  type="button"
+                  onClick={() => dispatch(removeContact(contact.id))}
+                >
+                  Delete
+                </button>
+                {contact.name}: {contact.number}
+              </li>
+            );
+          })}
+      </ul>
+      )
     </div>
   );
 };
