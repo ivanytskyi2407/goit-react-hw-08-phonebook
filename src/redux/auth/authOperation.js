@@ -28,12 +28,9 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk('/auth/login', async credentials => {
-  const dispatch = useDispatch();
-
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
-    // dispatch(fetchContacts());
     return data;
   } catch (error) {
     console.log(error);
