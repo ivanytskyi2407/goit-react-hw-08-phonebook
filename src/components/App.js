@@ -12,7 +12,6 @@ import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from '../redux/auth/authOperation';
 
 export const App = () => {
-  // const { status, error } = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,8 +27,6 @@ export const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
         </Route>
-        {/* {error && alert(error)} */}
-        {/* {status === 'loading' && <Loader />} */}
       </Routes>
     </Suspense>
   );

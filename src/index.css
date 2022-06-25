@@ -18,3 +18,41 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
+input {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1024px;
+  padding: 0 32px;
+}

@@ -36,8 +36,8 @@ export const Register = () => {
 
   return (
     <div>
+      <h2 className={s.title}>Register</h2>
       <form className={s.form} onSubmit={handleSubmit}>
-        <h2>Register</h2>
         <input
           onChange={handleChange}
           value={name}
@@ -53,7 +53,6 @@ export const Register = () => {
           className={s.input}
           type="email"
           placeholder="Email"
-          required
         />
         <input
           onChange={handleChange}
@@ -65,7 +64,7 @@ export const Register = () => {
           required
         />
         <button type="submit" id="signUp" className={s.btn}>
-          sign up
+          Sign up
         </button>
       </form>
     </div>

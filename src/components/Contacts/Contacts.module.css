@@ -1,6 +1,55 @@
+.div {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 .item {
   margin-bottom: 10px;
+}
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* add */
+.form {
+  display: block;
+  box-sizing: border-box;
+  margin-top: 20px;
   margin-left: 20px;
+}
+
+.input {
+  display: block;
+  width: 230px;
+  border: none;
+  border-bottom: 2px solid #008cba;
+  padding: 10px;
+  transition: 0.3s;
+  margin-right: 0%;
+}
+.input::placeholder {
+  color: #212529;
+  opacity: 0.4;
+}
+.button {
+  display: block;
+  margin-top: 10px;
+  width: 250px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: 2px solid #008cba;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.button:hover {
+  background-color: #008cba;
+  color: white;
 }
 
 .buttonDelete {
@@ -11,62 +60,12 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: rgb(117, 98, 213);
-  border: none;
+  background-color: white;
+  border: 2px solid #ee1a1a;
   border-radius: 15px;
-}
-/* add */
-.form {
-  display: block;
-  box-sizing: border-box;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-.label {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-size: large;
   font-weight: 600;
-  margin-bottom: 10px;
 }
-.input {
-  display: block;
-  width: 200px;
-  padding: 0.375rem 0.75rem;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #bdbdbd;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-bottom: 5px;
-}
-.input::placeholder {
-  color: #212529;
-  opacity: 0.4;
-}
-.button {
-  margin-left: 25px;
-  display: inline-block;
-  padding: 5px 15px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: rgb(117, 98, 213);
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px rgb(153, 153, 153);
-}
-
-.button:hover {
-  background-color: rgb(100, 77, 213);
+.buttonDelete:hover {
+  background-color: #ee1a1a;
+  color: white;
 }

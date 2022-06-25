@@ -32,8 +32,9 @@ export const Login = () => {
 
   return (
     <div>
+      <h2 className={s.title}>Login</h2>
+
       <form className={s.form} onSubmit={handleSubmit}>
-        <h2>Login</h2>
         <input
           onChange={handleChange}
           name="email"
@@ -52,7 +53,7 @@ export const Login = () => {
           required
         />
         <button type="submit" id="signUp" className={s.btn}>
-          sign up
+          Login
         </button>
       </form>
     </div>
