@@ -6,7 +6,7 @@ import { UserMenu } from './UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import authSelelector from '../../redux/auth/authSelector';
 
-export default function AppBar() {
+export const AppBar = () => {
   const isLoggedIn = useSelector(authSelelector.getIsLoggedIn);
   return (
     <div className="container">
@@ -19,4 +19,4 @@ export default function AppBar() {
       </main>
     </div>
   );
-}
+};

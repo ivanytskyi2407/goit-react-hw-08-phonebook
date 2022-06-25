@@ -7,9 +7,8 @@ import {
 } from 'redux/contacts/contactsOperations';
 import s from './Contacts.module.css';
 import Filter from '../Filter/Filter';
-import authSelelector from '../../redux/auth/authSelector';
 
-const Contacts = () => {
+export const Contacts = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -103,4 +102,3 @@ const Contacts = () => {
     </div>
   );
 };
-export default Contacts;

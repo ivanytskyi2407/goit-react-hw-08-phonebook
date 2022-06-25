@@ -2,6 +2,8 @@ import s from './Register.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperation';
+import { Link } from 'react-router-dom';
+import { ModalWindow } from '../Modal/Modal';
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ export const Register = () => {
   };
 
   return (
-    <div>
+    <ModalWindow>
       <h2 className={s.title}>Register</h2>
       <form className={s.form} onSubmit={handleSubmit}>
         <input
@@ -66,7 +68,10 @@ export const Register = () => {
         <button type="submit" id="signUp" className={s.btn}>
           Sign up
         </button>
+        <Link className={s.link} to="/login">
+          &#8594; to Login
+        </Link>
       </form>
-    </div>
+    </ModalWindow>
   );
 };

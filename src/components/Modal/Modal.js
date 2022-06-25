@@ -16,7 +16,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-function ModalWindow({ children, buttonClose }) {
+export const ModalWindow = ({ children, buttonClose }) => {
   const [modalIsOpen, setIsOpen] = useState(true);
 
   function closeModal() {
@@ -24,25 +24,16 @@ function ModalWindow({ children, buttonClose }) {
   }
 
   return (
-    <div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <button
-          type="button"
-          className={styles.buttonClose}
-          onClick={closeModal}
-        >
-          <CgClose />
-        </button>
-
-        {children}
-      </Modal>
-    </div>
+    <Modal
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <button type="button" className={styles.buttonClose} onClick={closeModal}>
+        <CgClose />
+      </button>
+      {children}
+    </Modal>
   );
-}
-
-export default ModalWindow;
+};
