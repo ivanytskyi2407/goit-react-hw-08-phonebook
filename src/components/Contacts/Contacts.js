@@ -10,8 +10,10 @@ import Filter from '../Filter/Filter';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [contact, setContact] = useState({
+    name: '',
+    number: '',
+  });
   const { items, filter } = useSelector(state => state.contacts);
 
   useEffect(() => {
@@ -20,26 +22,17 @@ export const Contacts = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
+    setContact(prev => ({
+      ...prev,
+      [name]: value,
+    }));
   };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addContact({ name, number }));
-    reset();
+    dispatch(addContact(contact));
+    setContact({ name: '', number: '' });
   };
-  const reset = () => {
-    setName('');
-    setNumber('');
-  };
+
   return (
     <div className={s.div}>
       <div>
@@ -49,7 +42,6 @@ export const Contacts = () => {
             onChange={handleChange}
             placeholder="Name"
             className={s.input}
-            value={name}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -61,7 +53,6 @@ export const Contacts = () => {
             onChange={handleChange}
             placeholder="Number"
             className={s.input}
-            value={number}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
