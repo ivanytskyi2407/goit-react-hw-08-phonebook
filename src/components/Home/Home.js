@@ -1,3 +1,4 @@
+import s from './Home.module.css';
 export const Home = () => {
-  return <img src="../../img/paper-1215552_960_720.jpg" alt="HomePage" />;
+  return <div className={s.home}></div>;
 };

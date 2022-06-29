@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import { CgClose } from 'react-icons/cg';
-import styles from './Modal.module.css';
+import s from './Modal.module.css';
+import PropTypes from 'prop-types';
 
 const customStyles = {
   content: {
@@ -16,7 +17,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export const ModalWindow = ({ children, buttonClose }) => {
+export const ModalWindow = ({ children }) => {
   const [modalIsOpen, setIsOpen] = useState(true);
 
   function closeModal() {
@@ -30,10 +31,14 @@ export const ModalWindow = ({ children, buttonClose }) => {
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <button type="button" className={styles.buttonClose} onClick={closeModal}>
+      <button type="button" className={s.buttonClose} onClick={closeModal}>
         <CgClose />
       </button>
       {children}
     </Modal>
   );
+};
+
+ModalWindow.propTypes = {
+  children: PropTypes.node.isRequired,
 };
